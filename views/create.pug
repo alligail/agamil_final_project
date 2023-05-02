@@ -1,0 +1,68 @@
+extends layout.pug
+
+block content
+    .container 
+        .row
+            .col-md-11
+                h1 Create Contact
+                .card.bg-light
+                    .card-body
+                        form(action='/create', method='post') 
+                            legend  Basic Info
+                            .row
+                                .col-md-6
+                                    section 
+                                    label(for='first') First Name
+                                    input.form-control(type = 'text', name='first')
+                                .col-md-6
+                                    label(for='last') Last Name
+                                    input.form-control(type = 'text', name='last')
+                                .col-md-6.mb-3
+                                    label(for='title') Title
+                                    select.form-control(name='title')
+                                        option(value='none') ----Click to Select One----
+                                        option(value='Mr.') Mr.
+                                        option(value='Mrs.') Mrs.
+                                        option(value='Ms.') Ms.
+                                        option(value='Dr.') Dr.
+                            .mb-3
+                                label(for='phone') Phone 
+                                input.form-control(type = 'tel', name='phone') 
+                            .mb-3 
+                                label(for='email') Email
+                                input.form-control(type='email', name='email')
+                            legend Address
+                            section 
+                            label(for='street') Street
+                            input.form-control.mb-3(type='text', name='street')
+                            section
+                            label(for='city') City 
+                            input.form-control.mb-3(type='text', name='city')
+                            section
+                            .row
+                                .col-md-6
+                                    label(for='state') State
+                                    input.form-control.mb-3(type='text', name='state')
+                                .col-md-6 
+                                    label(for='zip') Zip
+                                    input.form-control.mb-3(type='text', name='zip')
+                            section 
+                            label(for='country') Country
+                            input.form-control.mb-3(type='text', name='country')
+                            legend Contact Preferences
+                            section 
+                            input(type='checkbox', name='contact_by_phone')
+                            label(for='contact_by_phone') Contact by phone 
+                            section 
+                            input(type='checkbox', name='contact_by_email')
+                            label(for='contact_by_email') Contact by email 
+                            section 
+                            input(type='checkbox', name='contact_by_mail')
+                            label.mb-3(for='contact_by_mail') Contact by mail 
+                            .mb-2
+                                button.btn.btn-primary.me-3(type='submit') Add 
+                                a.btn.btn-secondary(type='sumbit',href='/') Cancel
+                                
+
+                    
+
