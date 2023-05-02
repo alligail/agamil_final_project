@@ -51,7 +51,19 @@ class ContactDB{
         }
     }
 
-
+    async createContact(fName, lName, address, phone, email, title, contactbymail, contactbyphone, contactbyemail, lat, long){
+        const id = await this.db.create('Contact', [
+            {column: 'firstname', value: fName},
+            {column: 'lastname', value: lName},
+            {column: 'address', value: address},
+            {column: 'phone', value: phone},
+            {column: 'email', value: email},
+            {column: 'title', value: title},
+            {column: 'contactbyemail', value: contactbyemail},
+            {column: 'contactbyphone', value: contactbyphone},
+            {column: 'contactbymail', value: contactbymail}
+        ])
+    }
 
 }
 
