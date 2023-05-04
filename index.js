@@ -34,6 +34,7 @@ app.use((req,res,next) => {
     next();
 })
 
+app.use('/', require('./routes/accounts'));
 app.use('/', require('./routes/contactlist'));
 
 app.listen(8080, () => {

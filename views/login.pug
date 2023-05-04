@@ -1,0 +1,26 @@
+extends layout.pug 
+
+block content
+    .container
+        .row
+            .col-lg-8 
+                h1 Sign in
+                .card.bg-light
+                    .card-body
+                        form(action='/login', method='post')
+                            section
+                                label(for='username') Username
+                            .input-group.mb3
+                                input.form-control(type='text', name='username')
+                            section
+                                label(for='password') Password
+                            .input-group.mb-3
+                                input.form-control(type='password', name = 'password')
+                            button.btn.btn-primary.me-3(type='submit') Sign In 
+                            a.btn.btn-secondary(href='/') Nevermind
+                if message
+                    .alert.alert-warning
+                        p #{message}
+                section 
+                    p.mt-3 Don't have an account yet? 
+                        a(href='/signup')  Sign up here!

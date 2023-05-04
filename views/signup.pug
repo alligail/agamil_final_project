@@ -1,0 +1,32 @@
+extends layout.pug 
+
+block content 
+    .container
+        .row
+            .col-md-10
+                h1 Sign up
+                p Please select a username, and a password. Don't worry about any password rules here, we don't really care much about protecting your information - so <code>helloworld</code> is just fine by us!
+                .card.bg-light
+                    .card-body
+                        form(action='/signup', method='post')
+                            label(for='first') First Name
+                            input.form-control.mb-2(type='text', name='first', required)
+                            section 
+                            label(for='last') Last Name
+                            input.form-control.mb-4(type='text', name='last', required)
+                            section
+                            label(for='username') Username 
+                            input.form-control.mb-2(type='text', name='username', required)
+                            section
+                            label(for='password') Password 
+                            input.form-control.mb-2(name='password', type ='password', required)
+                            section
+                            label(for='password2') Confirm Password 
+                            input.form-control.mb-4(name='password2', type = 'password', required)
+                            button.btn.btn-primary.me-2(type = 'submit') Sign up
+                            a.btn.btn-secondary(href='/') Nevermind 
+                p.mt-3 Already have an account?
+                    a(href='/login')  Sign in here!
+                if message
+                    p #{message}
+                    

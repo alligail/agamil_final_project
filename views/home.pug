@@ -9,6 +9,33 @@ block content
                 .col
                     a.btn.btn-primary.float-end(role='button', href='/create') Create a new contact
             ul.list-group
-                li.list-group-item Row 1
-                li.list-group-item Row 2
-                li.list-group-item Row 3
+                each c in contacts
+                    li.list-group-item
+                        .row 
+                            .col-md
+                                a(href= "/"+c.id, class="link-primary") #{c.title} #{c.firstname} #{c.lastname}
+                            .col-md
+                                span #{c.phonenumber}
+                            .col-md
+                                span #{c.email}
+                            .col-md
+                                span #{c.address}
+                            .col-md
+                                section
+                                    if c.contactbyphone === 1 
+                                        input(type='checkbox',name='byphone',disabled checked)
+                                    else
+                                        input(type='checkbox',name='byphone',disabled)
+                                    label(for='phone'+c.id) Phone
+                                section
+                                    if c.contactbyemail === 1 
+                                        input(type='checkbox',name='byemail',disabled checked)
+                                    else
+                                        input(type='checkbox',name='byemail',disabled)
+                                    label(for='email'+c.id) Email
+                                section 
+                                    if c.contactbymail === 1 
+                                        input(type='checkbox',name='bymail',disabled checked)
+                                    else
+                                        input(type='checkbox',name='bymail',disabled)
+                                    label(for='mail'+c.id) Mail    

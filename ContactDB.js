@@ -61,8 +61,56 @@ class ContactDB{
             {column: 'title', value: title},
             {column: 'contactbyemail', value: contactbyemail},
             {column: 'contactbyphone', value: contactbyphone},
-            {column: 'contactbymail', value: contactbymail}
+            {column: 'contactbymail', value: contactbymail},
+            {column: 'lat', value: lat},
+            {column: 'long', value: long}
         ])
+    }
+
+    async findUserbyUserName(username){
+        const uName = await this.db.read('Users', [{column: 'username', value: username}]);
+        if(uName.length > 0){
+            return uName[0];
+        }else{
+            return undefined; 
+        }
+    }
+
+    async findUserById(id) {
+        const us = await this.db.read('Users', [{ column: 'id', value: id }]);
+        if (us.length > 0) return us[0];
+        else {
+            return undefined;
+        }
+    }
+
+    async findContactByEmail(email){
+        const cEmail = await this.db.read('Contact', [{column: 'Email', value: email}]);
+        if(cEmail.length > 0){
+            return cEmail[0];
+        }else{
+            return undefined;
+        }
+    }
+
+    async deleteContact(id){
+        const deletedContact = await this.db.delete('Contact', [{ column: 'id', value: id}]);
+        return deletedContact;
+    }
+
+    async updateContact(id, col, val){
+        const changeData = await this.db.update('Contact',[{column: col, value: val}], [{ column: 'id', value: id}]);
+        return changeData;
+    }
+
+    async createUser(fName, lName, username, password){
+        const id = await this.db.create('Users', [
+            { column: 'firstname', value: fName },
+            { column: 'lastname', value: lName },
+            { column: 'username', value: username },
+            { column: 'password', value: password }
+        ])
+        return id;
     }
 
 }

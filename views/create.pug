@@ -13,14 +13,14 @@ block content
                                 .col-md-6
                                     section 
                                     label(for='first') First Name
-                                    input.form-control(type = 'text', name='first')
+                                    input.form-control(type = 'text', name='first', required)
                                 .col-md-6
                                     label(for='last') Last Name
-                                    input.form-control(type = 'text', name='last')
+                                    input.form-control(type = 'text', name='last', required)
                                 .col-md-6.mb-3
                                     label(for='title') Title
                                     select.form-control(name='title')
-                                        option(value='none') ----Click to Select One----
+                                        option(value='') ----Click to Select One----
                                         option(value='Mr.') Mr.
                                         option(value='Mrs.') Mrs.
                                         option(value='Ms.') Ms.
@@ -34,21 +34,21 @@ block content
                             legend Address
                             section 
                             label(for='street') Street
-                            input.form-control.mb-3(type='text', name='street')
+                            input.form-control.mb-3(type='text', name='street', required)
                             section
                             label(for='city') City 
-                            input.form-control.mb-3(type='text', name='city')
+                            input.form-control.mb-3(type='text', name='city', required)
                             section
                             .row
                                 .col-md-6
                                     label(for='state') State
-                                    input.form-control.mb-3(type='text', name='state')
+                                    input.form-control.mb-3(type='text', name='state', required)
                                 .col-md-6 
                                     label(for='zip') Zip
-                                    input.form-control.mb-3(type='text', name='zip')
+                                    input.form-control.mb-3(type='text', name='zip', required)
                             section 
                             label(for='country') Country
-                            input.form-control.mb-3(type='text', name='country')
+                            input.form-control.mb-3(type='text', name='country', required)
                             legend Contact Preferences
                             section 
                             input(type='checkbox', name='contact_by_phone')
@@ -62,6 +62,8 @@ block content
                             .mb-2
                                 button.btn.btn-primary.me-3(type='submit') Add 
                                 a.btn.btn-secondary(type='sumbit',href='/') Cancel
+                        if message
+                            p #{message}
                                 
 
                     

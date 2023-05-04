@@ -1,9 +1,14 @@
 html
     head
         title Final Contacts
+        meta(name="viewport", content="width=device=width,initial-scale=1")
         link(rel = "stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC", crossorigin="anonymous")
-        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM", crossorigin="anonymous")
+        link(rel="stylesheet", href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css")
+        link(rel="stylesheet", href="/webstyle.css")
         link(rel='icon', href='data:,')
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM", crossorigin="anonymous")
+        script(src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js")
+        script(src="/places.js")
     body
         if !hide_signup
             nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
