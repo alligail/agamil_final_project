@@ -13,7 +13,6 @@ const logged_in = (req,res,next) => {
  * HOME
  */
 router.get('/', async (req, res) => {
-    console.log("---------INSIDE contactlist get('//')-------------");
     const list = await req.db.findContactList();
 
     //Check if user is logged in or not
@@ -23,8 +22,7 @@ router.get('/', async (req, res) => {
     }else{
         checker = false;
     }
-    console.log("LOGGED IN: " + checker);
-    
+
     res.json({contacts: list, check: checker});
 });
 router.post('/', async(req,res) => {
@@ -36,12 +34,10 @@ router.post('/', async(req,res) => {
  * DELETE Contact
  */
 router.get('/:id/delete', logged_in, async(req,res) => {
-    console.log("-------Inside GET DELETE------");
     const id = await req.db.findContactById(req.params.id);
     res.render('delete', {contact:id});
 })
 router.post('/:id/delete', logged_in, async(req,res) => {
-    console.log("-------Inside POST DELETE------");
     const id = await req.db.findContactById(req.params.id);
     const deletedContact = await req.db.deleteContact(req.params.id);
     res.redirect('/');

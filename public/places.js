@@ -33,8 +33,6 @@ const on_row_click = (e) => {
 }
 
 const loadContacts = async () => {
-    console.log("INSIDE loadPlaces()");
-
     const response = await axios.get('/contactlist');
     const tbody = document.querySelector('tbody');
 
@@ -45,10 +43,6 @@ const loadContacts = async () => {
     for (var i = 0; i < markers.length; i++) {
         map.removeLayer(markers[i]);
     }
-
-    //[TEST] Displaying all the contacts
-    console.log(response.data.contacts);
-    console.log('LOGGED IN? IN LOAD PLACES: ' + response.data.check);
 
     if(response && response.data && response.data.contacts){
         for(const c of response.data.contacts){

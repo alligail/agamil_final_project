@@ -8,6 +8,10 @@ block content
                     h1 Contact List
                 .col
                     a.btn.btn-primary.float-end(role='button', href='/create') Create a new contact
+            if !logged_in
+                .row 
+                    .alert.alert-info
+                        p Click 'Sign-in' to Edit or Delete a contact!
             .table-responsive 
                 table.table 
                         thead   

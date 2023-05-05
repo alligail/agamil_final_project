@@ -16,7 +16,12 @@ router.post('/', async(req,res) => {
     //Retrieve user's input 
     let firstname = req.body.first.trim(); 
     const lastname = req.body.last.trim(); 
-    const title = req.body.title.trim();
+
+    let title = '';
+    if(req.body.title !== undefined){
+        title = req.body.title.trim();
+    }
+
     const phone = req.body.phone.trim();
     const email = req.body.email.trim();
     const addr = req.body.address.trim();
@@ -36,7 +41,6 @@ router.post('/', async(req,res) => {
         lat = result[0].latitude;
         long = result[0].longitude;
 
-
         console.log("----ADDRESS FOUND!----");
         console.log("ADDRESS: " + address);
         console.log(`LATITUDE: ${lat}`);
@@ -44,6 +48,7 @@ router.post('/', async(req,res) => {
         
     }else{
         console.log("Results Not Found");
+        address = 'Address Not Found';
     }
 
     //Add contact to the database

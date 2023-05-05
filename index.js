@@ -57,7 +57,14 @@ app.use('/contactlist', require('./routes/contactlist'));
 app.use('/create', require('./routes/create'));
 app.use('/edit', require('./routes/edit'));
 app.use('/', (req, res) => {
-    res.render('home', {});
+    let checker = false;
+    if(req.session.user){
+        checker = true;
+    }else{
+        checker = false;
+    }
+
+    res.render('home', {logged_in: checker});
 })
 
 app.listen(8080, () => {
