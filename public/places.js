@@ -2,8 +2,6 @@ let markers = new Array();
 let map = null;
 
 const generateMap = async() =>{
-    console.log("INSIDE generateMap()");
-
     map = L.map('map').setView([41, -74], 13);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -117,7 +115,6 @@ const loadContacts = async () => {
 }
 
 const updateContact = async (id) => {
-    console.log("Inside updateContract");
     await axios.get(`/edit/${id}`);
 }
 

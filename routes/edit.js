@@ -16,18 +16,13 @@ const logged_in = (req,res,next) => {
  * EDIT Contact
  */
 router.get('/:id', logged_in, async(req,res) => {
-    console.log("----------------------Inside EDIT----------------------");
     const id = await req.db.findContactById(req.params.id); 
-    console.log(id);
     res.render('edit', {contact: id});
 })
 
 router.post('/:id', logged_in, async(req,res) => {
     //Editing a contact 
-    console.log('-------------------------------inside post(/:id/edit)-----------------------');
-    
     const id = await req.db.findContactById(req.params.id);
-    console.log("BEFORE: " + id);
 
     //User's Input to Save 
     let firstname = req.body.first.trim(); 
@@ -61,8 +56,6 @@ router.post('/:id', logged_in, async(req,res) => {
     }
 
     //checking phone 
-    console.log(phone);
-    console.log(id.phone);
     if(phone !== id.phone){
         const changePhone = await req.db.updateContact(req.params.id, 'phone', phone);
     }
@@ -89,6 +82,7 @@ router.post('/:id', logged_in, async(req,res) => {
             const changeLat = await req.db.updateContact(req.params.id, 'lat', lat);
             const changeLong = await req.db.updateContact(req.params.id, 'long', long);
         }else{
+            //if no results are generated, address doesn't get updated
             console.log("Results Not Found");
         }
     }

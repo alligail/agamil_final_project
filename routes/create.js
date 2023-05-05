@@ -7,8 +7,6 @@ const geocoder = geo({ provider: 'openstreetmap' });
  * CREATE CONTACT
  */
 router.get('/', async (req, res) => {
-    console.log ("INSIDE /create");
-    //display the home page of the website
     res.render('create');
 });
 
