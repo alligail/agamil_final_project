@@ -14,17 +14,19 @@ block content
                                     section 
                                     label(for='first') First Name
                                     input.form-control(type = 'text', name='first', required)
-                                .col-md-6
+                                .col-md-6.mb-3
                                     label(for='last') Last Name
                                     input.form-control(type = 'text', name='last')
                                 .col-md-6.mb-3
-                                    label(for='title') Title
-                                    select.form-control(name='title')
-                                        option(value='') ----Click to Select One----
-                                        option(value='Mr.') Mr.
-                                        option(value='Mrs.') Mrs.
-                                        option(value='Ms.') Ms.
-                                        option(value='Dr.') Dr.
+                                    label(for='title') Title (select one): 
+                                        input(type='radio', name='title', id='Mr.', value='Mr.')
+                                        label(for='Mr.') Mr.
+                                        input(type='radio', name='title', id='Mrs.', value='Mrs.')
+                                        label(for='Mrs.') Mrs.
+                                        input(type='radio', name='title', id='Ms.', value='Ms.')
+                                        label(for='Ms.') Ms.
+                                        input(type='radio', name='title', id='Dr.', value='Dr.')
+                                        label(for='Dr.') Dr.
                             .mb-3
                                 label(for='phone') Phone 
                                 input.form-control(type = 'tel', name='phone') 

@@ -23,16 +23,9 @@ router.get('/', async (req, res) => {
     }else{
         checker = false;
     }
-
     console.log("LOGGED IN: " + checker);
     
     res.json({contacts: list, check: checker});
-    // if(list != undefined){
-    //     res.render('home', {contacts: list});
-    //     return;
-    // }
-
-    // res.render('home');
 });
 router.post('/', async(req,res) => {
     
@@ -43,11 +36,12 @@ router.post('/', async(req,res) => {
  * DELETE Contact
  */
 router.get('/:id/delete', logged_in, async(req,res) => {
-    console.log("Inside DELETE");
+    console.log("-------Inside GET DELETE------");
     const id = await req.db.findContactById(req.params.id);
     res.render('delete', {contact:id});
 })
 router.post('/:id/delete', logged_in, async(req,res) => {
+    console.log("-------Inside POST DELETE------");
     const id = await req.db.findContactById(req.params.id);
     const deletedContact = await req.db.deleteContact(req.params.id);
     res.redirect('/');

@@ -18,13 +18,15 @@ block content
                                     label(for='last') Last Name
                                     input.form-control(type = 'text', name='last', value=contact.lastname)
                                 .col-md-6.mb-3
-                                    label(for='title') Title
-                                    select.form-control(name='title', value=contact.title)
-                                        option(value='') ----Click to Select One----
-                                        option(value='Mr.') Mr.
-                                        option(value='Mrs.') Mrs.
-                                        option(value='Ms.') Ms.
-                                        option(value='Dr.') Dr.
+                                    label(for='title') Title (select one):
+                                        input(type='radio', name='title', id='Mr.', value='Mr.', checked=contact.title === 'Mr.')
+                                        label(for='Mr.') Mr.
+                                        input(type='radio', name='title', id='Mrs.', value='Mrs.', checked=contact.title === 'Mrs.')
+                                        label(for='Mrs.') Mrs.
+                                        input(type='radio', name='title', id='Ms.', value='Ms.', checked=contact.title === 'Ms.')
+                                        label(for='Ms.') Ms.
+                                        input(type='radio', name='title', id='Dr.', value='Dr.', checked=contact.title === 'Dr.')
+                                        label(for='Dr.') Dr.
                             .mb-3
                                 label(for='phone') Phone 
                                 input.form-control(type = 'tel', name='phone', value=contact.phone) 
