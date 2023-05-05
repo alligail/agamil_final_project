@@ -8,34 +8,26 @@ block content
                     h1 Contact List
                 .col
                     a.btn.btn-primary.float-end(role='button', href='/create') Create a new contact
-            ul.list-group
-                each c in contacts
-                    li.list-group-item
-                        .row 
-                            .col-md
-                                a(href= "/"+c.id, class="link-primary") #{c.title} #{c.firstname} #{c.lastname}
-                            .col-md
-                                span #{c.phonenumber}
-                            .col-md
-                                span #{c.email}
-                            .col-md
-                                span #{c.address}
-                            .col-md
-                                section
-                                    if c.contactbyphone === 1 
-                                        input(type='checkbox',name='byphone',disabled checked)
-                                    else
-                                        input(type='checkbox',name='byphone',disabled)
-                                    label(for='phone'+c.id) Phone
-                                section
-                                    if c.contactbyemail === 1 
-                                        input(type='checkbox',name='byemail',disabled checked)
-                                    else
-                                        input(type='checkbox',name='byemail',disabled)
-                                    label(for='email'+c.id) Email
-                                section 
-                                    if c.contactbymail === 1 
-                                        input(type='checkbox',name='bymail',disabled checked)
-                                    else
-                                        input(type='checkbox',name='bymail',disabled)
-                                    label(for='mail'+c.id) Mail    
+            table.table 
+                    thead   
+                        tr  
+                            th Name 
+                            th Phone
+                            th Email
+                            th Address
+                            th Contact By
+                            th Latitude 
+                            th Longitude
+                            th 
+                    tbody
+            .row 
+                .form-group
+                    div#map-container
+                        div#map
+        
+        script(src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js")
+        script(src="/places.js")
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM", crossorigin="anonymous")
+        script. 
+            generateMap()
+            loadContacts()

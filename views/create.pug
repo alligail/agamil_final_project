@@ -16,7 +16,7 @@ block content
                                     input.form-control(type = 'text', name='first', required)
                                 .col-md-6
                                     label(for='last') Last Name
-                                    input.form-control(type = 'text', name='last', required)
+                                    input.form-control(type = 'text', name='last')
                                 .col-md-6.mb-3
                                     label(for='title') Title
                                     select.form-control(name='title')
@@ -33,22 +33,8 @@ block content
                                 input.form-control(type='email', name='email')
                             legend Address
                             section 
-                            label(for='street') Street
-                            input.form-control.mb-3(type='text', name='street', required)
-                            section
-                            label(for='city') City 
-                            input.form-control.mb-3(type='text', name='city', required)
-                            section
-                            .row
-                                .col-md-6
-                                    label(for='state') State
-                                    input.form-control.mb-3(type='text', name='state', required)
-                                .col-md-6 
-                                    label(for='zip') Zip
-                                    input.form-control.mb-3(type='text', name='zip', required)
-                            section 
-                            label(for='country') Country
-                            input.form-control.mb-3(type='text', name='country', required)
+                            label(for='street') Full Address
+                            input.form-control.mb-3(type='text', name='address', required)
                             legend Contact Preferences
                             section 
                             input(type='checkbox', name='contact_by_phone')

@@ -1,0 +1,61 @@
+extends layout.pug
+
+block content
+    .container 
+        .row
+            .col-md-11
+                h1 Update Contact
+                .card.bg-light
+                    .card-body
+                        form(action='/edit/'+contact.id, method='post')
+                            legend  Basic Info
+                            .row.g-3
+                                .col-md-6
+                                    section 
+                                    label(for='first') First Name
+                                    input.form-control(type = 'text', name='first',value= contact.firstname)
+                                .col-md-6.mb-3
+                                    label(for='last') Last Name
+                                    input.form-control(type = 'text', name='last', value=contact.lastname)
+                                .col-md-6.mb-3
+                                    label(for='title') Title
+                                    select.form-control(name='title', value=contact.title)
+                                        option(value='') ----Click to Select One----
+                                        option(value='Mr.') Mr.
+                                        option(value='Mrs.') Mrs.
+                                        option(value='Ms.') Ms.
+                                        option(value='Dr.') Dr.
+                            .mb-3
+                                label(for='phone') Phone 
+                                input.form-control(type = 'tel', name='phone', value=contact.phone) 
+                            .mb-3 
+                                label(for='email') Email
+                                input.form-control(type='email', name='email', value=contact.email)
+                            legend Address
+                            section 
+                            label(for='street') Full Address
+                            input.form-control.mb-3(type='text', name='address', value=contact.address, required)
+                            legend Contact Preferences
+                            section 
+                            if contact.contactbyphone === 1
+                                input(type='checkbox', name='contact_by_phone', checked="checked")
+                            else
+                                input(type='checkbox', name='contact_by_phone')
+                            label(for='contact_by_phone') Contact by phone 
+                            section 
+                            if contact.contactbyemail === 1
+                                input(type='checkbox', name='contact_by_email', checked="checked")
+                            else
+                                input(type='checkbox', name='contact_by_email')
+                            label(for='contact_by_email') Contact by email 
+                            section 
+                            if contact.contactbymail === 1
+                                input(type='checkbox', name='contact_by_mail', checked="checked")
+                            else
+                                input(type='checkbox', name='contact_by_mail')
+                            label(for='contact_by_mail') Contact by mail 
+                            .mb-2
+                                button.btn.btn-primary.mt-3.me-3(type='submit') Save 
+                                a.btn.btn-secondary.mt-3(href='/') Cancel
+                    
+

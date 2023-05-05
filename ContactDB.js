@@ -113,6 +113,14 @@ class ContactDB{
         return id;
     }
 
+    async findContactById(id) {
+        const us = await this.db.read('Contact', [{ column: 'id', value: id }]);
+        if (us.length > 0) return us[0];
+        else {
+            return undefined;
+        }
+    }
+
 }
 
 module.exports = ContactDB;
